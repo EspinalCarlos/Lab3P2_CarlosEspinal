@@ -11,6 +11,7 @@ public class Lab3P2_CarlosEspinal {
     static ArrayList lista = new ArrayList();
     static Scanner read = new Scanner(System.in);
     
+    
     public static void menu1(){
         System.out.println("""
                            --- Menu Principal ---
@@ -234,7 +235,7 @@ public class Lab3P2_CarlosEspinal {
                                     case 3:
                                         System.out.println("Ingrese el nuevo size: ");
                                         int newsize = read.nextInt();
-                                        ((Bebida)lista.get(indmodbeb)).setSize(newsize);
+                                        ((Bebida)lista.get(modindb)).setSize(newsize);
                                         break;
                                 }
                                 
@@ -345,6 +346,46 @@ public class Lab3P2_CarlosEspinal {
                     }
                     break;
                 case 6:
+                    Compra c = new Compra();
+                    
+                    if (lista.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Lista vacia");
+                    } else{
+                        System.out.println("--- Lista de Productos disponibles ---");
+                        for (Object o : lista) {
+                            System.out.println(lista.indexOf(o)+"- "+o);
+                        }
+                        boolean alive = true;
+                        while (alive){
+                            System.out.println("Ingrese el indice del objeto que desea comprar: ");
+                            int compraind = read.nextInt();
+                            
+                            c.getListadeproductos().add((Producto)lista.get(compraind));
+                            JOptionPane.showMessageDialog(null, "Agregado a la lista de compra");
+                            System.out.println("Desea seguir comprando?:[S/N] ");
+                            char ynlmao = read.next().charAt(0);
+                            
+                            if (ynlmao == 's' || ynlmao == 'S') {
+                            } else{
+                                alive = false;
+                            }
+                            
+                        }
+                        
+                        double totprice = 0;
+                        for (Producto listadeproducto : c.getListadeproductos()) {
+                            totprice += listadeproducto.getPrecio();
+                            System.out.println(lista.indexOf(listadeproducto)+"- "+listadeproducto);
+                        }
+                        c.setTotal(totprice);
+                        
+                        System.out.println("--- Recibo ---");
+                        for (Object l : c.getListadeproductos()) {
+                            System.out.println(c.getListadeproductos().indexOf(l) + "- "+ l);
+                        }
+                        System.out.println("Total a pagar: "+ totprice);
+                        lista.add(c);  
+                    }
                     break;
                 case 7:
                     break;

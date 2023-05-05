@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Compra {
     private ArrayList<Producto> listadeproductos = new ArrayList();
-    private int total;
+    private double total;
 
     public Compra() {
     }
 
-    public Compra(int total) {
+    public Compra(double total) {
         this.total = total;
     }
 
@@ -22,11 +22,11 @@ public class Compra {
         this.listadeproductos = listadeproductos;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
