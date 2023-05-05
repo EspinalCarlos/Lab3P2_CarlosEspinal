@@ -30,6 +30,18 @@ public class Compra {
         this.total = total;
     }
 
+    @Override
+    public String toString() {
+        String fin = "";
+        fin += "Lista de productos comprados: \n";
+        for (Producto o : listadeproductos) {
+            fin += listadeproductos.indexOf(o)+"- "+o+"\n";
+        }
+        fin += "Total a pagar de la compra: "+total;
+        return fin;
+    }
+
+    
     
     
     

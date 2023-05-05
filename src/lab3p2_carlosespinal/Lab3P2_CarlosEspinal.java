@@ -388,6 +388,23 @@ public class Lab3P2_CarlosEspinal {
                     }
                     break;
                 case 7:
+                    int contador = 0;
+                    for (Object object : lista) {
+                        if (object instanceof Compra) {
+                            contador++;
+                        }
+                    }
+                    if (contador == 0) {
+                        JOptionPane.showMessageDialog(null, "No hay compras realizadas");
+                    } else{
+                        System.out.println("--- Historial de compras --- ");
+                        for (Object a : lista) {
+                            if (a instanceof Compra) {
+                                System.out.println("COMPRA");
+                                System.out.println(a);
+                            }
+                        }
+                    }
                     break;
                 case 8:
                     op0=8;
