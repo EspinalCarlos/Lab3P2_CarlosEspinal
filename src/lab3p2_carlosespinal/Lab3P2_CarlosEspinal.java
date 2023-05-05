@@ -3,6 +3,7 @@ package lab3p2_carlosespinal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 public class Lab3P2_CarlosEspinal {
@@ -36,8 +37,31 @@ public class Lab3P2_CarlosEspinal {
             
             switch(opc1){
                 case 1:
+                    System.out.println("Ingrese el nombre de la comida: ");
+                    read.nextLine();
+                    String namec = read.nextLine();
+                    System.out.println("Ingrese el precio de la comida: ");
+                    double pricec = read.nextDouble();
+                    System.out.println("Esta vencida esta comida?[S/N] ");
+                    char ync = read.next().charAt(0);
+                    boolean isV = true;
+                    if (ync == 'S' || ync == 's') {
+                        isV = true;
+                    } else{
+                        isV = false;
+                    }
+                    
+                    lista.add(new Comida(isV, namec, pricec));
+                    JOptionPane.showMessageDialog(null, "Agregado correctamente");
                     break;
                 case 2:
+                    System.out.println("Ingrese el nombre de la bebida: ");
+                    read.nextLine();
+                    String nameb = read.nextLine();
+                    System.out.println("Ingrese el precio de la bebida: ");
+                    String priceb = read.nextLine();
+                    System.out.println("Ingrese el size de la bebida: ");
+                    
                     break;
                 case 3:
                     break;

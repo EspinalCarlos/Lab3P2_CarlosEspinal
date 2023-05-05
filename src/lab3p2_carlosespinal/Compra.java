@@ -4,7 +4,7 @@ package lab3p2_carlosespinal;
 import java.util.ArrayList;
 
 public class Compra {
-    private ArrayList<Producto> compras = new ArrayList();
+    private ArrayList<Producto> listadeproductos = new ArrayList();
     private int total;
 
     public Compra() {
@@ -14,12 +14,12 @@ public class Compra {
         this.total = total;
     }
 
-    public ArrayList<Producto> getCompras() {
-        return compras;
+    public ArrayList<Producto> getListadeproductos() {
+        return listadeproductos;
     }
 
-    public void setCompras(ArrayList<Producto> compras) {
-        this.compras = compras;
+    public void setListadeproductos(ArrayList<Producto> listadeproductos) {
+        this.listadeproductos = listadeproductos;
     }
 
     public int getTotal() {
@@ -29,6 +29,8 @@ public class Compra {
     public void setTotal(int total) {
         this.total = total;
     }
+
+    
     
     
     
