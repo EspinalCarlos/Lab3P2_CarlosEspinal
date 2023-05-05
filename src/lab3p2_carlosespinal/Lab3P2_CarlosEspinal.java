@@ -127,17 +127,116 @@ public class Lab3P2_CarlosEspinal {
                         int opcmod1 = read.nextInt();
                         switch(opcmod1){
                             case 1:
-                                System.out.println("--- Lista de Comidas ---");
+                                ArrayList<Integer> valmod = new ArrayList();
+                                System.out.println("--- Lista de Comidas --- ");
                                 for (Object t : lista) {
                                     if (t instanceof Comida) {
                                         System.out.println(lista.indexOf(t)+"- "+t+"\n");
-                                    }
+                                        valmod.add(lista.indexOf(t));
+                                    } 
+
                                 }
-                                System.out.println("Ingrese el indice de la comida a modificar: ");
-                                int indmodcum = read.nextInt();
+                                System.out.println("Ingrese el indice de la comida que desea modificar: ");
+                                int modind = read.nextInt();
+                                if (!valmod.contains(modind)) {
+                                    boolean cont = true;
+                                        while(cont){
+                                            JOptionPane.showMessageDialog(null, "Opion Invalida");
+                                            System.out.println("Ingrese el indice de la comida que desea modificar: ");
+                                            modind = read.nextInt();
+                                            if (!valmod.contains(modind)) {
+                                                cont = true;
+                                            } else{
+                                                cont = false;
+                                            }
+                                        }
+                                }
+                                
+                                menuModC();
+                                System.out.println("Ingrese el atributo a modificar: ");
+                                int atrmodcum = read.nextInt();
+                                switch (atrmodcum){
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo nombre: ");
+                                        read.nextLine();
+                                        String newnamec = read.nextLine();
+                                        
+                                        ((Comida)lista.get(modind)).setNombre(newnamec);
+                                        JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo precio: ");
+                                        double newpricec = read.nextDouble();
+                                        ((Comida)lista.get(modind)).setPrecio(newpricec);
+                                        JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        break;
+                                    case 3: 
+                                        System.out.println("La comida esta vencida[S/N] ");
+                                        char newyn = read.next().charAt(0);
+                                        
+                                        if (newyn == 's' || newyn == 'S') {
+                                            ((Comida)lista.get(modind)).setEstadoVencimiento(true);
+                                            JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        } else{
+                                            ((Comida)lista.get(modind)).setEstadoVencimiento(false);
+                                            JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        }
+                                        break;
+                                }
+                                
+                                
                                 
                                 break;
                             case 2:
+                                ArrayList<Integer> valmod2 = new ArrayList();
+                                System.out.println("--- Lista de Bebidas --- ");
+                                for (Object t : lista) {
+                                    if (t instanceof Bebida) {
+                                        System.out.println(lista.indexOf(t)+"- "+t+"\n");
+                                        valmod2.add(lista.indexOf(t));
+                                    } 
+
+                                }
+                                System.out.println("Ingrese el indice de la bebida que desea modificar: ");
+                                int modindb = read.nextInt();
+                                if (!valmod2.contains(modindb)) {
+                                    boolean cont = true;
+                                        while(cont){
+                                            JOptionPane.showMessageDialog(null, "Opion Invalida");
+                                            System.out.println("Ingrese el indice de la bebida que desea modificar: ");
+                                            modindb = read.nextInt();
+                                            if (!valmod2.contains(modindb)) {
+                                                cont = true;
+                                            } else{
+                                                cont = false;
+                                            }
+                                        }
+                                }
+                                
+                                menuModB();
+                                int indmodbeb= read.nextInt();
+                                
+                                switch(indmodbeb){
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo nombre: ");
+                                        read.nextLine();
+                                        String newnamec = read.nextLine();
+                                        
+                                        ((Bebida)lista.get(modindb)).setNombre(newnamec);
+                                        JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo precio: ");
+                                        double newpricec = read.nextDouble();
+                                        ((Bebida)lista.get(modindb)).setPrecio(newpricec);
+                                        JOptionPane.showMessageDialog(null, "Modificado correctamente");
+                                        break;
+                                    case 3:
+                                        System.out.println("Ingrese el nuevo size: ");
+                                        int newsize = read.nextInt();
+                                        ((Bebida)lista.get(indmodbeb)).setSize(newsize);
+                                        break;
+                                }
                                 
                                 
                                 break;
@@ -169,7 +268,7 @@ public class Lab3P2_CarlosEspinal {
                                     boolean cont = true;
                                         while(cont){
                                             JOptionPane.showMessageDialog(null, "Opion Invalida");
-                                            System.out.println("Ingrese el indice de la bebida que desea eliminar: ");
+                                            System.out.println("Ingrese el indice de la comida que desea eliminar: ");
                                             delind = read.nextInt();
                                             if (!valdel.contains(delind)) {
                                                 cont = true;
