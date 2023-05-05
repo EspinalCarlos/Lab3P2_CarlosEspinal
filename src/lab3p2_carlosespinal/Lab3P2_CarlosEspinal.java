@@ -50,6 +50,37 @@ public class Lab3P2_CarlosEspinal {
                            """);
     }
     
+    public static void menuMod1(){
+        System.out.println("""
+                           --- Tipo de Producto a modificar ---
+                           
+                           1. Comida 
+                           2. Bebida
+                           
+                           """);
+    }
+    
+    public static void menuModC(){
+        System.out.println("""
+                           --- Atributo a modificar ---
+                           
+                           1. Nombre
+                           2. Precio
+                           3. Estado de Vencimiento
+                           
+                           
+                           """);
+    }
+    public static void menuModB(){
+        System.out.println("""
+                           --- Atributo a modificar ---
+                           
+                           1. Nombre
+                           2. Precio
+                           3. Size 
+                           
+                           """);
+    }
     public static void main(String[] args) {
         int op0 = 0;
         while (op0 != 8) {            
@@ -87,9 +118,34 @@ public class Lab3P2_CarlosEspinal {
                     
                     lista.add(new Bebida(tamb, nameb, priceb));
                     break;
-                case 3:
                     
+                case 3:
+                    if (lista.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Lista vacia");
+                    } else{
+                        menuMod1();
+                        int opcmod1 = read.nextInt();
+                        switch(opcmod1){
+                            case 1:
+                                System.out.println("--- Lista de Comidas ---");
+                                for (Object t : lista) {
+                                    if (t instanceof Comida) {
+                                        System.out.println(lista.indexOf(t)+"- "+t+"\n");
+                                    }
+                                }
+                                System.out.println("Ingrese el indice de la comida a modificar: ");
+                                int indmodcum = read.nextInt();
+                                
+                                break;
+                            case 2:
+                                
+                                
+                                break;
+                        }
+                        
+                    }
                     break;
+                    
                 case 4:
                     if (lista.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Lista vacia");
