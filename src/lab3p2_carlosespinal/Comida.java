@@ -41,9 +41,9 @@ public class Comida extends Producto{
     @Override
     public String toString() {
         if (estadoVencimiento == true) {
-            return super.toString() + "El producto ha vencido";
+            return super.toString() + "\nEl producto ha vencido";
         } else{
-            return super.toString() + "El producto no ha vencido";
+            return super.toString() + "\nEl producto no ha vencido";
         }
         
     }

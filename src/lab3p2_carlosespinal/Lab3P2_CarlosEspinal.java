@@ -28,6 +28,21 @@ public class Lab3P2_CarlosEspinal {
                            """);
     }
     
+    public static void menuDel(){
+        System.out.println("""
+                           --- Tipo de Producto a eliminar ---
+                           
+                           1. Comida
+                           2. Bebida
+                           
+                           
+                           """);
+    }
+    
+    public static void menuDelc(){
+        
+    }
+    
     public static void main(String[] args) {
         int op0 = 0;
         while (op0 != 8) {            
@@ -59,13 +74,79 @@ public class Lab3P2_CarlosEspinal {
                     read.nextLine();
                     String nameb = read.nextLine();
                     System.out.println("Ingrese el precio de la bebida: ");
-                    String priceb = read.nextLine();
+                    double priceb = read.nextDouble();
                     System.out.println("Ingrese el size de la bebida: ");
+                    int tamb = read.nextInt();
                     
+                    lista.add(new Bebida(tamb, nameb, priceb));
                     break;
                 case 3:
+                    
                     break;
                 case 4:
+                    menuDel();
+                    int opcdel = read.nextInt();
+                    switch (opcdel){
+                        case 1:
+                            ArrayList<Integer> valdel = new ArrayList();
+                            System.out.println("--- Lista de Comidas --- ");
+                            for (Object t : lista) {
+                                if (t instanceof Comida) {
+                                    System.out.println(lista.indexOf(t)+"- "+t+"\n");
+                                    valdel.add(lista.indexOf(t));
+                                } 
+                                
+                            }
+                            System.out.println("Ingrese el indice de la comida que desea eliminar: ");
+                            int delind = read.nextInt();
+                            if (!valdel.contains(delind)) {
+                                boolean cont = true;
+                                    while(cont){
+                                        JOptionPane.showMessageDialog(null, "Opion Invalida");
+                                        System.out.println("Ingrese el indice de la bebida que desea eliminar: ");
+                                        delind = read.nextInt();
+                                        if (!valdel.contains(delind)) {
+                                            cont = true;
+                                        } else{
+                                            cont = false;
+                                        }
+                                    }
+                            }
+                            lista.remove(delind);
+                            JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+                            break;
+                        case 2:
+                            ArrayList<Integer> valdel2 = new ArrayList();
+                            System.out.println("--- Lista de Bebidas --- ");
+                            for (Object t : lista) {
+                                if (t instanceof Bebida) {
+                                    System.out.println(lista.indexOf(t)+"- "+t+"\n");
+                                    valdel2.add(lista.indexOf(t));
+                                } 
+                                
+                            }
+                            System.out.println("Ingrese el indice de la bebida que desea eliminar: ");
+                                int delind2 = read.nextInt();
+                                
+                                if (!valdel2.contains(delind2)) {
+                                    boolean cont = true;
+                                    while(cont){
+                                        JOptionPane.showMessageDialog(null, "Opion Invalida");
+                                        System.out.println("Ingrese el indice de la bebida que desea eliminar: ");
+                                        delind2 = read.nextInt();
+                                        if (!valdel2.contains(delind2)) {
+                                            cont = true;
+                                        } else{
+                                            cont = false;
+                                        }
+                                    }
+                                }
+                                lista.remove(delind2);
+                                JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+                            
+                            
+                            break;
+                    }
                     break;
                 case 5:
                     break;
